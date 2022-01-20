@@ -1,0 +1,49 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Movie Recommendation</title>
+  <link rel="stylesheet" type="text/css" href="{% static '/css/index.css'%}">
+
+</head>
+<body>
+<h1>Movie Recommendation System</h1>
+
+<form method="POST" action="/recommend/">
+{% csrf_token %}
+<input type="text" name="textfield">
+
+<button type="submit">Find!</button>
+</form>
+
+{% if result %}
+
+<table class = "styled-table">
+  <thead>
+  <tr>
+    <th>Title</th>
+    <th>Overview</th>
+    <th>Poster</th>
+  </tr>
+  </thead>
+  {% for title in result %}
+  <tbody>
+  <tr>
+    <td>{{ title.0}}</td>
+    <td class="Overview">{{ title.1}}</td>
+    <td><img src="{{title.2}}" width="150" height="200"></td>
+
+  </tr>
+  </tbody>
+  {% endfor %}
+</table>
+{% else %}
+<h1>Type the title of the film!</h1>
+
+
+{% endif %}
+</body>
+</html>
