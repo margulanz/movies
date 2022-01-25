@@ -16,7 +16,7 @@ import json
 url_poster = "https://imdb8.p.rapidapi.com/title/find"
 headers = {
     'x-rapidapi-host': "imdb8.p.rapidapi.com",
-    'x-rapidapi-key': "3d549b9bc6msh21fec5fa66c24b1p1cfac4jsnb3daa17945c4"
+    'x-rapidapi-key': ""
     }
 
 
